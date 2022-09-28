@@ -13,7 +13,7 @@ router.post("/register", async (req, res) => {
     const findUser = await db.User.findOne({
       email: req.body.email,
     });
-
+    console.log(findUser);
     // A user cannot be created twice.
     if (findUser) {
       return res.status(400).json({ msg: "email exists already" });
@@ -51,7 +51,6 @@ router.post("/register", async (req, res) => {
       // This handles all other errors.
       res.status(500).json({ msg: "server error 500" });
     }
-    res.status(500).json(err);
   }
 });
 
@@ -112,6 +111,7 @@ router.put("/balance", userValidation, async (req, res) => {
     const user = res.locals.user;
     user.balance = req.body.balance;
     await user.save();
+    res.json(user);
   } catch (error) {
     res.status(500).json({ msg: "server error 500" });
   }
