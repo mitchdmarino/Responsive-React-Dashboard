@@ -118,3 +118,13 @@ router.put("/balance", userValidation, async (req, res) => {
     res.status(500).json({ msg: "server error 500" });
   }
 });
+
+// GET current user info
+router.get("/", userValidation, async (req, res) => {
+  try {
+    const user = res.locals.user;
+    res.json(user);
+  } catch (error) {
+    res.status(500).json({ msg: "server error 500" });
+  }
+});
