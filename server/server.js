@@ -16,7 +16,6 @@ app.get("/", (req, res) => {
 });
 
 app.use("/user", require("./controllers/user"));
-app.use("/balance", require("./controllers/balance"));
 
 // Listening on port
 

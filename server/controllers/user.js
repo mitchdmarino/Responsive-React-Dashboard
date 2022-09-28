@@ -3,7 +3,7 @@ const router = require("express").Router();
 const db = require("../models/index");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-
+const userValidation = require("./userValidation");
 // ROUTES
 
 // POST /user/register --- Register a new user
@@ -99,5 +99,20 @@ router.post("/login", async (req, res) => {
       res.status(500).json({ msg: "server error 500" });
     }
     res.status(500).json(err);
+  }
+});
+
+module.exports = router;
+
+// Update Account Balance
+
+router.put("/balance", userValidation, async (req, res) => {
+  try {
+    // access the logged in user from the userValidation middleware
+    const user = res.locals.user;
+    user.balance = req.body.balance;
+    await user.save();
+  } catch (error) {
+    res.status(500).json({ msg: "server error 500" });
   }
 });
