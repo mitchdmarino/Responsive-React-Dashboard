@@ -68,7 +68,16 @@ function App() {
           <Route path="/" element={<Homepage />} />
           <Route
             path="/dashboard"
-            element={<Dashboard currentUser={currentUser} />}
+            element={
+              currentUser ? (
+                <Dashboard
+                  currentUser={currentUser}
+                  setCurrentUser={setCurrentUser}
+                />
+              ) : (
+                <Navigate to="/login" />
+              )
+            }
           />
           <Route
             path="/register"
