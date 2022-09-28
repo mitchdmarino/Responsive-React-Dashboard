@@ -9,33 +9,33 @@ const jwt = require("jsonwebtoken");
 // POST /user/register --- Register a new user
 router.post("/register", async (req, res) => {
   try {
-    /// The DB is checked for a duplicate account.
-    const findAccount = await db.Account.findOne({
+    /// The DB is checked for a duplicate user.
+    const findUser = await db.User.findOne({
       email: req.body.email,
     });
 
-    // An account cannot be created twice.
-    if (findAccount) {
+    // A user cannot be created twice.
+    if (findUser) {
       return res.status(400).json({ msg: "email exists already" });
     }
-    // The account's password is hashed.
+    // The user's password is hashed.
     const password = req.body.password;
     const saltRounds = 12;
     const hashedPassword = await bcrypt.hash(password, saltRounds);
 
-    // A new account is created with the hashed password.
-    const newAccount = new db.Account({
+    // A new user is created with the hashed password.
+    const newUser = new db.User({
       name: req.body.name,
       email: req.body.email,
       password: hashedPassword,
     });
-    await newAccount.save();
-    // The account is signed in.
+    await newUser.save();
+    // The user is signed in.
     // The jwt payload is created.
     const payload = {
-      name: newAccount.name,
-      email: newAccount.email,
-      id: newAccount.id,
+      name: newUser.name,
+      email: newUser.email,
+      id: newUser.id,
     };
     // The token is signed and sent back.
     const token = jwt.sign(payload, process.env.JWT_SECRET, {
@@ -55,34 +55,34 @@ router.post("/register", async (req, res) => {
   }
 });
 
-// POST /accounts/login -- Validate the login credentials.
+// POST /users/login -- Validate the login credentials.
 router.post("/login", async (req, res) => {
   try {
-    // The account is searched for in the DB.
-    const findAccount = await db.Account.findOne({
+    // The user is searched for in the DB.
+    const findUser = await db.User.findOne({
       email: req.body.email,
     });
 
-    // If the account is not found, a status of 400 is sent.
-    // The account is sent an error message.
-    if (!findAccount) {
+    // If the user is not found, a status of 400 is sent.
+    // The user is sent an error message.
+    if (!findUser) {
       return res.status(400).json({ msg: "Invalid Login Credentials" });
     }
 
     // The supplied password is checked to see if it matched the password in the DB.
     const passwordCheck = await bcrypt.compare(
       req.body.password,
-      findAccount.password
+      findUser.password
     );
-    // If they don't match, return and let the account know that login has failed.
+    // If they don't match, return and let the user know that login has failed.
     if (!passwordCheck) {
       return res.status(400).json({ msg: "Invalid Login Credentials" });
     }
     // A jwt payload is created.
     const payload = {
-      name: findAccount.name,
-      email: findAccount.email,
-      id: findAccount.id,
+      name: findUser.name,
+      email: findUser.email,
+      id: findUser.id,
     };
     // The jwt is signed and sent back.
     const token = jwt.sign(payload, process.env.JWT_SECRET, {
