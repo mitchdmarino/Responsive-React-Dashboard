@@ -15,6 +15,7 @@ import Register from "./components/user/pages/Register";
 import Profile from "./components/user/pages/Profile";
 import Navbar from "./components/Navbar";
 import Homepage from "./components/Homepage";
+import Dashboard from "./components/dashboard/pages/Dashboard";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -65,6 +66,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Homepage />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route
             path="/register"
             element={

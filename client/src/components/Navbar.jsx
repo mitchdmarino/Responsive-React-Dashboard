@@ -9,6 +9,9 @@ export default function Navbar( {currentUser, handleLogout} ) {
             </Link>{' | '}
             <Link to='/profile'>
                 Profile
+            </Link>{' | '}
+            <Link to='/dashboard'>
+                Dashboard
             </Link>
         </>
     )
