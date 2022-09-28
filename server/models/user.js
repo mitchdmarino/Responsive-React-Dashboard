@@ -14,9 +14,9 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    account: {
+    balance: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Account",
+      ref: "Balance",
     },
   },
   {

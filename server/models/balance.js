@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-// Schema for Monetary Account balance.
+// Schema for Account balance.
 const BalanceSchema = new mongoose.Schema(
   {
     value: {
