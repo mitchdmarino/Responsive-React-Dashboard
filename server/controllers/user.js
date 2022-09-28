@@ -35,6 +35,7 @@ router.post("/register", async (req, res) => {
     const payload = {
       name: newUser.name,
       email: newUser.email,
+      balance: newUser.balance,
       id: newUser.id,
     };
     // The token is signed and sent back.
@@ -81,6 +82,7 @@ router.post("/login", async (req, res) => {
     const payload = {
       name: findUser.name,
       email: findUser.email,
+      balance: findUser.balance,
       id: findUser.id,
     };
     // The jwt is signed and sent back.
