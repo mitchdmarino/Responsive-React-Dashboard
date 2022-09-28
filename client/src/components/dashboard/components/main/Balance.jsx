@@ -1,7 +1,7 @@
-export default function Balance () {
+export default function Balance ({currentUser}) {
     return (
         <div>
-            <h1>Total Balance: 0</h1>
+            <h1>Total Balance: {currentUser.balance}</h1>
         </div>
     )
 }

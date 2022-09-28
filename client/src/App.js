@@ -28,21 +28,6 @@ function App() {
       const loggedInUser = jwt_decode(token);
       setCurrentUser(loggedInUser);
       //  The authorization headers are created.
-      const options = {
-        headers: {
-          Authorization: token,
-        },
-      };
-      // The app is updated with the account's latest information.
-      axios
-        .get(
-          `${process.env.REACT_APP_SERVER_URL}/user/${loggedInUser.id}`,
-          options
-        )
-        .then((response) => {})
-        .catch((err) => {
-          console.log(err);
-        });
     } else {
       setCurrentUser(null);
     }
