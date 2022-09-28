@@ -54,3 +54,50 @@ router.post("/register", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+// POST /accounts/login -- Validate the login credentials.
+router.post("/login", async (req, res) => {
+  try {
+    // The account is searched for in the DB.
+    const findAccount = await db.Account.findOne({
+      email: req.body.email,
+    });
+
+    // If the account is not found, a status of 400 is sent.
+    // The account is sent an error message.
+    if (!findAccount) {
+      return res.status(400).json({ msg: "Invalid Login Credentials" });
+    }
+
+    // The supplied password is checked to see if it matched the password in the DB.
+    const passwordCheck = await bcrypt.compare(
+      req.body.password,
+      findAccount.password
+    );
+    // If they don't match, return and let the account know that login has failed.
+    if (!passwordCheck) {
+      return res.status(400).json({ msg: "Invalid Login Credentials" });
+    }
+    // A jwt payload is created.
+    const payload = {
+      name: findAccount.name,
+      email: findAccount.email,
+      id: findAccount.id,
+    };
+    // The jwt is signed and sent back.
+    const token = jwt.sign(payload, process.env.JWT_SECRET, {
+      expiresIn: "1d",
+    });
+    res.json({ token });
+  } catch (err) {
+    console.warn(err);
+    // This handles validation errors.
+    if (err.name === "ValidationError") {
+      res.status(400).json({ msg: err.message });
+    } else {
+      // This handles all other errors.
+      res.status(500).json({ msg: "server error 500" });
+    }
+    res.status(500).json(err);
+  }
+});
