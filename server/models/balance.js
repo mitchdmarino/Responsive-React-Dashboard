@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 
 // Schema for Monetary Account balance.
-const AccountSchema = new mongoose.Schema(
+const BalanceSchema = new mongoose.Schema(
   {
-    balance: {
+    value: {
       type: Number,
       default: 0,
     },
@@ -17,4 +17,4 @@ const AccountSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("Account", AccountSchema);
+module.exports = mongoose.model("Balance", BalanceSchema);

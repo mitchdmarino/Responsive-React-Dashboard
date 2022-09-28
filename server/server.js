@@ -15,6 +15,9 @@ app.get("/", (req, res) => {
   res.json({ msg: "Backend Home" });
 });
 
+app.use("/user", require("./controllers/user"));
+app.use("/balance", require("./controllers/balance"));
+
 // Listening on port
 
 app.listen(PORT, () => {
