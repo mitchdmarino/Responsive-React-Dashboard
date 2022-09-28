@@ -9,6 +9,13 @@ import { useState, useEffect } from "react";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
 
+// components/pages
+import Login from "./components/user/pages/Login";
+import Register from "./components/user/pages/Register";
+import Profile from "./components/user/pages/Profile";
+import Navbar from "./components/Navbar";
+import Homepage from "./components/Homepage";
+
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
   // useEffect -- If the User navigates away from the page, we will log them back in.
@@ -47,13 +54,50 @@ function App() {
       // If it exists, delete it.
       localStorage.removeItem("jwt");
     }
+    setCurrentUser(null);
   };
 
   return (
     <Router>
-      <header></header>
+      <header>
+        <Navbar currentUser={currentUser} handleLogout={handleLogout} />
+      </header>
       <main>
-        <Routes>{/* <Route path="/" element={} */}</Routes>
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route
+            path="/register"
+            element={
+              <Register
+                currentUser={currentUser}
+                setCurrentUser={setCurrentUser}
+              />
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <Login
+                currentUser={currentUser}
+                setCurrentUser={setCurrentUser}
+              />
+            }
+          />
+          {/* if current user is logged in, proceed to profile page. Otherwise, redirect to login page */}
+          <Route
+            path="/profile"
+            element={
+              currentUser ? (
+                <Profile
+                  currentUser={currentUser}
+                  setCurrentUser={setCurrentUser}
+                />
+              ) : (
+                <Navigate to="/login" />
+              )
+            }
+          />
+        </Routes>
       </main>
     </Router>
   );
