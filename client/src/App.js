@@ -66,7 +66,10 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Homepage />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route
+            path="/dashboard"
+            element={<Dashboard currentUser={currentUser} />}
+          />
           <Route
             path="/register"
             element={

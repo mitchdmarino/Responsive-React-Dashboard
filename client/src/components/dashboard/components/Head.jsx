@@ -1,5 +1,8 @@
-export default function Head () {
+export default function Head ({currentUser}) {
     return (
-        <div className="dash-head">Head</div>
+        <div className="dash-head">
+            <h1>{currentUser.name}</h1>
+            <p>{currentUser.balance}</p>
+        </div>
     )
 }

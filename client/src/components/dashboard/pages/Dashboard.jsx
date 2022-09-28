@@ -6,10 +6,10 @@ import Main from '../components/Main'
 import Side from '../components/Side'
 
 
-export default function Dashboard () {
+export default function Dashboard ({currentUser}) {
     return (
         <div className='grid-container'>
-            <Head />
+            <Head currentUser={currentUser} />
             <Side />            
             <Main />
             <Foot />

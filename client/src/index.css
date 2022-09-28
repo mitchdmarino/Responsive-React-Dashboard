@@ -11,3 +11,44 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+/* DASHBOARD STYLES */
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  grid-template-rows: 50px 1fr 50px;
+  grid-template-areas: 
+      "side head"
+      "side main"
+      "side foot";
+  height: 100vh
+}
+
+.dash-head {
+  grid-area: head;
+  background-color: #564D80
+}
+
+.dash-side {
+  grid-area: side;
+  background-color: #44344F
+}
+
+.dash-main {
+  grid-area: main;
+  background-color: #98A6D4;
+}
+
+.dash-foot {
+  grid-area: foot;
+  background-color: #564D80;
+}
+
+.dash-head, .dash-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+}
