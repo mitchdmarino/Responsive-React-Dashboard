@@ -42,10 +42,12 @@ export default function AddFunds ({currentUser, setCurrentUser}) {
         <div className='money-form'>
             <h2>Deposit</h2>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="dollars">$</label>
-                <input type="number" aria-label='dollars' name="dollars" id="dollars" value={dollars} onChange={(e) => setDollars(e.target.value)} min="0"/>
-                <label htmlFor="cents">.</label>
-                <input type="number" aria-label='cents' name="cents" id="cents" value={cents}min="0" max="99" onChange={(e) => setCents(e.target.value)}/><br></br>
+                <div>
+                    <label htmlFor="dollars">$</label>
+                    <input type="number" aria-label='dollars' name="dollars" id="dollars" value={dollars} onChange={(e) => setDollars(e.target.value)} min="0"/>
+                    <label htmlFor="cents">.</label>
+                    <input type="number" aria-label='cents' name="cents" id="cents" value={cents}min="0" max="99" onChange={(e) => setCents(e.target.value)}/><br></br>
+                </div>
                 <button className="money-button" type="submit">Add Funds</button>
             </form>
         </div>
