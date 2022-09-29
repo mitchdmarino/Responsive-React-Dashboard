@@ -8,7 +8,7 @@ export default function AddFunds ({currentUser, setCurrentUser}) {
 
     const deposit = (dollars, cents) => {
         let balance = currentUser.balance
-        balance += (dollars*100 + cents)
+        balance += (Number(dollars)*100 + Number(cents))
         return balance
     }
 
