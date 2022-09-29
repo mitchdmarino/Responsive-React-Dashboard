@@ -5,8 +5,8 @@ export default function Side ({setMain, isSideExpanded, setIsSideExpanded}) {
 
     return (
         <div className={isSideExpanded? 'dash-side active': 'dash-side'}>
-            <div class="dash-side__close-icon" onClick={() => setIsSideExpanded(!isSideExpanded)}>
-                <i class="fas fa-times"></i>
+            <div className="dash-side__close-icon" onClick={() => setIsSideExpanded(!isSideExpanded)}>
+                <h2>X</h2>
             </div>
             <ul>
                 <li onClick={()=> handleClick('balance')}>Balance</li>
