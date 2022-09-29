@@ -103,8 +103,6 @@ router.post("/login", async (req, res) => {
   }
 });
 
-module.exports = router;
-
 // Update Account Balance
 
 router.put("/balance", userValidation, async (req, res) => {
@@ -142,3 +140,5 @@ router.put("/", userValidation, async (req, res) => {
     res.status(500).json({ msg: "server error 500" });
   }
 });
+
+module.exports = router;
