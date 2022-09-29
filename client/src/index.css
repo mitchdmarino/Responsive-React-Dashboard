@@ -127,6 +127,15 @@ nav .icon {
   padding: 0 16px;
 }
 
+/* DASHBOARD COMPONENTS */
+
+.balance-container h1 {
+  color: rgb(34, 12, 59);
+  padding: 25px;
+  font-size: 60px;
+  text-align: center;
+}
+
 /* FORMS */
 
 .money-form > form > input {
