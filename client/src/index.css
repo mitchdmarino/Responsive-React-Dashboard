@@ -71,3 +71,32 @@ code {
   padding: 0 16px;
 }
 
+/* FORMS */
+
+.money-form > form > input {
+  padding: 10px;
+  width: 200px;
+  height: 100px;
+  font-size: 50px;
+  border-radius: 10%;
+  border: 1px solid black;
+  text-align: right;
+}
+.money-form > form > label {
+  font-size: 72px;
+}
+
+.money-button {
+  background-color: white;
+  border-radius: 10%;
+  padding: 10px;
+  display: block;
+  margin: 0 auto;
+  font-size: 32px;
+  height: 100px;
+}
+.money-button:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}

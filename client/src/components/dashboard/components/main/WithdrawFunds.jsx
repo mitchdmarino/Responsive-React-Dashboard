@@ -34,16 +34,19 @@ export default function WithdrawFunds ({currentUser, setCurrentUser}) {
         } catch (error) {
             console.warn(error)
         }
+        setDollars(0)
+        setCents(0)
         
     }
     return (
-        <div>
+        <div className='money-form'>
+            <h2>Withdraw</h2>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="dollars">Dollars</label>
-                <input type="number" name="dollars" id="dollars" value={dollars} onChange={(e) => setDollars(e.target.value)} min="0"/>
-                <label htmlFor="cents">Cents</label>
-                <input type="number" name="cents" id="cents" value={cents}min="0" max="99" onChange={(e) => setCents(e.target.value)}/>
-                <button type="submit">Submit</button>
+                <label htmlFor="dollars">$</label>
+                <input type="number" aria-label="dollars" name="dollars" id="dollars" value={dollars} onChange={(e) => setDollars(e.target.value)} min="0"/>
+                <label htmlFor="cents">.</label>
+                <input type="number" style={{textAlign: 'left'}}aria-label="cents" name="cents" id="cents" value={cents}min="0" max="99" onChange={(e) => setCents(e.target.value)}/><br></br>
+                <button className="money-button" type="submit">Transfer to Bank</button>
             </form>
         </div>
     )
