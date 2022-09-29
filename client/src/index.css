@@ -156,3 +156,36 @@ nav .icon {
   color: white;
   cursor: pointer;
 }
+
+
+/* USER LOGIN/REGISTER FORM STYLES */
+
+.user-form input {
+  padding: 10px;
+  width: 400px;
+  display: block;
+  margin: 0 auto;
+  background-color: rgba(157, 45, 232, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.398);  
+}
+
+.user-form label {
+  display: block;
+  margin: 0 auto;
+  width: 400px;
+  text-align: left;
+  padding: 5px
+}
+
+.user-form button {
+  margin: 0 auto;
+  display: block;
+  padding: 10px;
+  border-radius: 10%;
+  margin-top: 10px;
+  background-color: rgba(157, 45, 232, 0.1);;
+}
+
+.login-register-link {
+  text-align: center;
+}

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios'
 import jwt_decode from 'jwt-decode'
-import { Navigate } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 
 export default function Login({ currentUser, setCurrentUser }) {
     // state for the controlled form 
@@ -44,10 +44,10 @@ export default function Login({ currentUser, setCurrentUser }) {
 
     return (
         <div>
-            <h1>Login</h1>
+            <h1 style={{padding: 10, textAlign: 'center'}}>Login</h1>
             <p> {msg}</p>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor='email'>email</label>
+            <form className='user-form' onSubmit={handleSubmit}>
+                <label htmlFor='email'>Email:</label>
                 <input 
                     type='text'
                     name='email'
@@ -56,7 +56,7 @@ export default function Login({ currentUser, setCurrentUser }) {
                     placeholder='example@domain.com'
                     onChange={(e) => setEmail(e.target.value)}
                 />
-                <label htmlFor='password'>password</label>
+                <label htmlFor='password'>Password:</label>
                 <input 
                     type='password'
                     name='password'
@@ -68,6 +68,11 @@ export default function Login({ currentUser, setCurrentUser }) {
                 <button type='submit'>Login</button>
                
             </form>
+            <div className='login-register-link'>
+                <p>Don't have an account? <Link to="/register">Sign up</Link></p>
+            </div>
+            
+            
         </div>
     )
 }

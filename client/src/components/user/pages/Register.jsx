@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios'
 import jwt_decode from 'jwt-decode'
-import { Navigate } from 'react-router-dom'
+import { Navigate, Link } from 'react-router-dom'
 
 export default function Register({ currentUser, setCurrentUser }) {
     // state for the controlled form 
@@ -45,10 +45,10 @@ export default function Register({ currentUser, setCurrentUser }) {
 
     return (
         <div>
-            <h1>Register</h1>
+            <h1 style={{padding: 10, textAlign: 'center'}}>Register</h1>
             <p> {msg}</p>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor='name'>name</label>
+            <form onSubmit={handleSubmit} className="user-form">
+                <label htmlFor='name'>Name</label>
                 <input 
                     type='text'
                     name='name'
@@ -57,7 +57,7 @@ export default function Register({ currentUser, setCurrentUser }) {
                     placeholder='example@domain.com'
                     onChange={(e) => setName(e.target.value)}
                 />
-                <label htmlFor='email'>email</label>
+                <label htmlFor='email'>Email</label>
                 <input 
                     type='text'
                     name='email'
@@ -66,7 +66,7 @@ export default function Register({ currentUser, setCurrentUser }) {
                     placeholder='example@domain.com'
                     onChange={(e) => setEmail(e.target.value)}
                 />
-                <label htmlFor='password'>password</label>
+                <label htmlFor='password'>Password</label>
                 <input 
                     type='text'
                     name='password'
@@ -77,6 +77,9 @@ export default function Register({ currentUser, setCurrentUser }) {
                 />
                 <button type='submit'>Register</button>
             </form>
+            <div className='login-register-link'>
+                <p>Already have an account? <Link to="/login">Sign in</Link></p>
+            </div>
         </div>
     )
 }
