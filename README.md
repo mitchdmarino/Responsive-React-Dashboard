@@ -63,14 +63,18 @@ To deploy the frontend, I used React.js with React-router-dom. Upon user registr
 To run this program locally, first fork and clone this repository. Open up the repository in your terminal and run the following commands:
 
 ```
+// set up client
 cd client
 
 echo "REACT_APP_SERVER_URL=http://localhost:8000" > .env.local
 
 npm install
 
+// set up server
 cd ../server
+
 echo "JWT_SECRET=SuperDuperSecretCode123454321" > .env
+
 npm install
 ```
 
