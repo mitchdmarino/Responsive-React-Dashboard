@@ -128,3 +128,17 @@ router.get("/", userValidation, async (req, res) => {
     res.status(500).json({ msg: "server error 500" });
   }
 });
+
+// PUT current user to make changes to name/email
+router.put("/", userValidation, async (req, res) => {
+  try {
+    // access the logged in user from the userValidation middleware
+    const user = res.locals.user;
+    user.email = req.body.email;
+    user.name = req.body.name;
+    await user.save();
+    res.json(user);
+  } catch (error) {
+    res.status(500).json({ msg: "server error 500" });
+  }
+});
