@@ -16,7 +16,7 @@ export default function Dashboard ({currentUser, setCurrentUser}) {
         <div className='grid-container'>
             <Head currentUser={currentUser} />
             <Side setMain={setMain}/>            
-            <Main content={main} currentUser={currentUser}/>
+            <Main content={main} currentUser={currentUser} setCurrentUser={setCurrentUser}/>
             <Foot />
         </div>
     )

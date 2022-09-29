@@ -25,9 +25,19 @@ function App() {
     const token = localStorage.getItem("jwt");
     if (token) {
       // If it is, we will decode it and set the Account in app state.
-      const loggedInUser = jwt_decode(token);
-      setCurrentUser(loggedInUser);
-      //  The authorization headers are created.
+      const options = {
+        headers: {
+          Authorization: token,
+        },
+      };
+      axios
+        .get(`${process.env.REACT_APP_SERVER_URL}/user/`, options)
+        .then((response) => {
+          setCurrentUser(response.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     } else {
       setCurrentUser(null);
     }
