@@ -230,3 +230,36 @@ nav .icon {
   padding: 10px;
   
 }
+
+/* HOMEPAGE styles */
+
+.home-page {
+  margin: 25px;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  justify-content: space-evenly;
+}
+
+.card {
+  max-width: 300px;
+  margin: 20px 0px;
+  text-align: left;
+  border: 2px solid rgba(0, 0, 0, 0.138);
+  border-radius: 5%;
+  padding: 20px;
+  background-color: #564d8072;
+}
+
+.about-list {
+  display: flex;
+  justify-content: space-around;
+}
+.about-list li,a {
+  text-decoration: none;
+  list-style-type: none;
+  font-size: 24px;
+}
