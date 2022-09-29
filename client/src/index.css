@@ -189,3 +189,44 @@ nav .icon {
 .login-register-link {
   text-align: center;
 }
+
+
+/* Profile Page */
+
+.profile-info {
+  width: 95%;
+  border: 3px solid rgba(0, 0, 0, 0.119);
+  margin: 10px auto;
+
+  min-height: 500px;
+  background-color: rgba(128, 128, 128, 0.216);
+
+}
+.profile-info p {
+  padding: 10px;
+  font-size: 24px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  width: 300px;
+  margin: 0 auto;
+}
+
+#cancel-button {
+  background-color: rgba(255, 0, 0, 0.158);
+}
+
+.button-edit {
+  display: block;
+  padding: 10px;
+  border-radius: 10%;
+  margin: 10px;
+  background-color: white
+}
+
+.profile-page h1 {
+  padding: 10px;
+  
+}
