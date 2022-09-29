@@ -38,7 +38,7 @@ export default function Profile({currentUser, setCurrentUser}) {
            {!showEdit?  (<div className="profile-info">
                 <h1>Name: {currentUser.name}</h1>
                 <h2>Email: {currentUser.email}</h2>
-                <button onClick={() => setShowEdit(true)}>Edit</button>
+                <button onClick={() => setShowEdit(true)}>Edit Info</button>
 
             </div>): (
                 <div className="profile-edit">

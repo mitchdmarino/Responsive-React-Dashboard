@@ -58,7 +58,7 @@ export default function Login({ currentUser, setCurrentUser }) {
                 />
                 <label htmlFor='password'>password</label>
                 <input 
-                    type='text'
+                    type='password'
                     name='password'
                     id='password'
                     value={password}
