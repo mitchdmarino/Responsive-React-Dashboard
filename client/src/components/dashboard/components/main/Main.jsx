@@ -6,7 +6,7 @@ export default function Main ({content, currentUser, setCurrentUser}) {
     let section = <Balance currentUser={currentUser} />
     switch(content) {
         case 'deposit': 
-            section = <AddFunds />
+            section = <AddFunds currentUser={currentUser} setCurrentUser={setCurrentUser}/>
             break;
         case 'withdraw':
             section = <WithdrawFunds currentUser={currentUser} setCurrentUser={setCurrentUser}/>
