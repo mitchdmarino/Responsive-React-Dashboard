@@ -71,15 +71,70 @@ nav .icon {
 
 .grid-container {
   display: grid;
-  grid-template-columns: 240px 1fr;
+  grid-template-columns: 1fr;
   grid-template-rows: 50px 1fr 50px;
   grid-template-areas: 
+      "head"
+      "main"
+      "foot";
+  height: 100vh;
+  width: 100%;
+}
+.dash-side {
+  background-color: #44344F;
+  grid-area: side;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 240px;
+  position: fixed;
+  overflow-y: auto;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  z-index: 2; /* Needs to sit above the hamburger menu icon */
+  transform: translateX(-245px);
+  transition: all .6s ease-in-out;
+}
+
+.dash-side.active {
+  transform: translateX(0);
+}
+.dash-side__close-icon {
+  position: absolute;
+  visibility: visible;
+  top: 8px;
+  right: 12px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #ddd;
+}
+
+@media only screen and (min-width: 46.875em) {
+  .dash-side {
+    position: relative; /* Fixed position on mobile */
+    transform: translateX(0);
+  }
+
+  .dash-side__close-icon {
+    visibility: hidden;
+  }
+  .menu-icon {
+    visibility: hidden;
+  }
+}
+
+@media screen and (min-width: 46.875em) {
+  /* Show the sidenav */
+  .grid-container {
+    grid-template-columns: 240px 1fr; /* Show the side nav for non-mobile screens */
+    grid-template-areas:
       "head head"
       "side main"
       "side foot";
-  height: 100vh;
-  width: 100%;
-  
+  }
+  .dash-side {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .dash-head {
@@ -87,11 +142,6 @@ nav .icon {
   background-color: #564D80
 }
 
-.dash-side {
-  grid-area: side;
-  background-color: #44344F;
-  flex-direction: column;
-}
 
 .dash-side > ul {
   padding: 0;
@@ -128,6 +178,23 @@ nav .icon {
 }
 
 /* DASHBOARD COMPONENTS */
+
+.menu-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  z-index: 1;
+  cursor: pointer;
+  padding: 12px;
+  background-color: #DADAE3;
+}
+
+.dash-head h1 {
+  padding: 0 20px;
+  
+}
 
 .balance-container h1 {
   color: rgb(34, 12, 59);

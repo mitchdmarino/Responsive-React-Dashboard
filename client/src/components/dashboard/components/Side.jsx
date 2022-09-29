@@ -1,9 +1,13 @@
-export default function Side ({setMain}) {
+export default function Side ({setMain, isSideExpanded, setIsSideExpanded}) {
     const handleClick = (value) => {
         setMain(value)
     }
+
     return (
-        <div className="dash-side">
+        <div className={isSideExpanded? 'dash-side active': 'dash-side'}>
+            <div class="dash-side__close-icon" onClick={() => setIsSideExpanded(!isSideExpanded)}>
+                <i class="fas fa-times"></i>
+            </div>
             <ul>
                 <li onClick={()=> handleClick('balance')}>Balance</li>
                 <li onClick={()=> handleClick('deposit')}>Deposit Funds</li>
