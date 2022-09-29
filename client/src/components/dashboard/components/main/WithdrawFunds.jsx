@@ -43,7 +43,7 @@ export default function WithdrawFunds ({currentUser, setCurrentUser}) {
             <h2>Withdraw</h2>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="dollars">$</label>
-                <input type="number" aria-label="dollars" name="dollars" id="dollars" value={dollars} onChange={(e) => setDollars(e.target.value)} min="0"/>
+                <input type="number" aria-label="dollars" name="dollars" id="dollars" max={currentUser.balance/100-1} value={dollars} onChange={(e) => setDollars(e.target.value)} min="0"/>
                 <label htmlFor="cents">.</label>
                 <input type="number" style={{textAlign: 'left'}}aria-label="cents" name="cents" id="cents" value={cents}min="0" max="99" onChange={(e) => setCents(e.target.value)}/><br></br>
                 <button className="money-button" type="submit">Transfer to Bank</button>
