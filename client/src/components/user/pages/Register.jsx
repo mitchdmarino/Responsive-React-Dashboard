@@ -54,7 +54,7 @@ export default function Register({ currentUser, setCurrentUser }) {
                     name='name'
                     id='name'
                     value={name}
-                    placeholder='example@domain.com'
+                    placeholder='Jane Doe'
                     onChange={(e) => setName(e.target.value)}
                 />
                 <label htmlFor='email'>Email</label>

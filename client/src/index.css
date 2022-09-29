@@ -258,8 +258,12 @@ nav .icon {
   display: flex;
   justify-content: space-around;
 }
-.about-list li,a {
+.about-list >li {
   text-decoration: none;
   list-style-type: none;
+  font-size: 24px;
+}
+
+a {
   font-size: 24px;
 }
