@@ -1,8 +1,4 @@
-# Mitchell Marino Take Home Assignment
-
-## Roadies Labs
-
-Assignment: Build a simple application with a login/logout feature and a dashboard for the user to see their account balance. React is required for frontend.
+# Responsive Dashboard React
 
 <hr>
 
